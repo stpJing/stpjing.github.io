@@ -52,6 +52,7 @@ JPA只是一个简化对象关系映射来管理Java应用程序中的关系数�
 | none        | 禁用                                                         |
 
 JPA可以协助使用者依据实体类创建表，这要求使用者提供标注，以下为实例
+
     @Entity //实体
     @Table(name = "user")//JPA会依据name建表读表
     public class User{
@@ -62,13 +63,17 @@ JPA可以协助使用者依据实体类创建表，这要求使用者提供标�
       private String username;
       //省略空参构造，与get/set函数
     }
+
 为避免空参构造与get/set的繁琐，提高代码的简洁性，可以引入lombok
+
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
         <scope>provided</scope>
     </dependency>
+
 lombok提供以下注释
+
 | 注释                     | 作用域及作用                                                 |
 | ------------------------ | ------------------------------------------------------------ |
 | @Setter                  | 注解在类或字段，注解在类时为所有字段生成setter方法，注解在字段上时只为该字段生成setter方法。 |
@@ -79,9 +84,10 @@ lombok提供以下注释
 | @RequiredArgsConstructor | 注解在类，为类中需要特殊处理的字段生成构造方法，比如final和被@NonNull注解的字段。 |
 | @AllArgsConstructor      | 注解在类，生成包含类中所有字段的构造方法。                   |
 | @Data                    | 注解在类，生成setter/getter、equals、canEqual、hashCode、toString方法，如为final属性，则不会为该属性生成setter方法 |
-| @Slf4j                   | 注解在类，生成log变量，严格意义来说是常量。private static final Logger log = LoggerFactory.getLogger(UserController.class); |
+| @Slf4j                   | 注解在类，生成log变量，严格意义来说是常量。 |
 
 根据我们的需求，重新构造User
+
     @Data
     @NoArgsConstructor
     @Entity //实体
@@ -93,7 +99,9 @@ lombok提供以下注释
       @Column(name = "name", unique = true, nullable = false, length = 64)//name属性对应表中的属性，unique，nullable分别对应属性是否唯一，是否为空（默认为否），length则代表存储长度
       private String username;
     }
+
 可以为User添加一对多关系Admin，一个Admin管理多个User
+
     @Data
     @NoArgsConstructor
     @Entity
@@ -108,18 +116,24 @@ lombok提供以下注释
       //name代表作为外键的属性
       private Collection<User> users;
     }
+
 同时User中添加以下一行
+
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.REFRESH})
     private Admin adminId;
+
 可以为User添加多对多关系Role，在JPA中，多对多的双方并不是完全对等的，通常分为支配方与被支配方
 选择User作为支配方，添加代码
+
     @ManyToMany(targetEntity = Role.class, cascade = {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.REFRESH})
     @JoinTable(name = "role2tag",//多对多关系在数据库中需要创建新表，这一行是表名
             joinColumns = {@JoinColumn(name = "userId", referencedColumnName = "userId")},//两个属性分别支配方被引用的属性，以及改属性在role2tag表中的名称
             inverseJoinColumns = {@JoinColumn(name = "roleId", referencedColumnName = "roleId")}//两个属性分别被支配方被引用的属性，以及改属性在role2tag表中的名称
     )
     private Collection<Role> roles;
+
 同时创建实体类Role
+
     @Data
     @NoArgsConstructor
     @Entity
@@ -132,7 +146,9 @@ lombok提供以下注释
       //mappedBy对应支配方引用该实体的属性，即roles
       private Collection<User> users;
     }
+
 JPA的级联属性如下所示：
+
 | 级联属性 | 作用     |
 | -------- | -------- |
 | PERSIST  | 级联保存 |
@@ -141,5 +157,6 @@ JPA的级联属性如下所示：
 | REFRESH  | 级联获取 |
 | DETACH   | 级联移除 |
 | ALL     | 以上全部 |
+
 REFRESH、DETACH中的级联对应服务器从数据库中获取数据，服务器从内存中移除数据的过程，这涉及到JPA的运作过程：
 当JPA查询到有关联关系的存在时，不会立即获取被关联的对象，而是在被调用时再获取
