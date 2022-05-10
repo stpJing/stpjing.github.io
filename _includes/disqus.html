@@ -1,8 +1,7 @@
-<!-- {% if site.discus_identifier %} -->
+
 {% if site.site.livere_uid %}
   <section class="comment-area">
-    <!-- <div class="comment-wrapper"> -->
-        <!-- {% if site.comments_curtain %}
+    <div class="comment-wrapper">
             <div class="row" id="comment-curtain">
                 <div class="col-lg-8 col-sm-10 mr-auto ml-auto">
                     <h2 class="page-subtitle">Comments</h2>
@@ -11,16 +10,6 @@
                     </div>
                 </div>
             </div>
-        {% endif %}
-      <div id="disqus_thread"></div>
-          <script>
-            (function() {
-                var d = document, s = d.createElement('script');
-                s.src = '//{{ site.discus_identifier }}.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-            })();
-          </script> -->
           <div id="lv-container" data-id="city" data-uid="{{site.livere_uid}}">
           <script type="text/javascript">
              (function(d, s) {
@@ -37,6 +26,6 @@
           </script>
           </div>
       <noscript>评论功能需要启用JavaScript</noscript>
-    <!-- </div> -->
-  </section> <!-- End Comment Area -->
-{% endif %}
+    </div>
+  </section>
+{$ endif %}
