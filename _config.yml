@@ -1,6 +1,6 @@
 # Site settings
 title: 荆凉凉
-description: '君子不器。' # this means to ignore newlines until "baseurl:"
+description: '君子不器' # this means to ignore newlines until "baseurl:"
 permalink: ':title:output_ext'
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://stpjing.github.io" # the base hostname & protocol for your site, e.g. http://example.com
@@ -32,10 +32,10 @@ about-author: 在校大学生.
 
 # Contact links
 email: youngloogjim@gmail.com # Add your Email address
-phone: # Add your Phone number
+phone: +86 19982040169# Add your Phone number
 website: https://amaynez.github.io # Add your website
 linkedin: amaynez # Add your Linkedin handle
-github: amaynez # Add your Github handle
+github: stpJing # Add your Github handle
 twitter: '@MvmThe' # Add your Twitter handle
 bandcamp: armandomaynez # Add your Bandcamp username
 stackoverflow: stackoverflow # Add your stackoverflow account
