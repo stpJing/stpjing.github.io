@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: post
 read_time: true
 show_date: true
@@ -334,4 +334,4 @@ def apply_gradients(self, epoch):
 
     self.gradient_zeros()
 ```
-
+ -->

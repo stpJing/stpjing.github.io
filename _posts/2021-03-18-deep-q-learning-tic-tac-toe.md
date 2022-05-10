@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: post
 read_time: true
 show_date: true
@@ -249,4 +249,4 @@ After still playing around with some hyperparameters I managed to get similar pe
 
 As of today, my best result so far is 87.5%, I will leave it rest for a while and keep investigating to find a reason for not being able to reach at least 90%. I read about [self play](https://medium.com/applied-data-science/how-to-train-ai-agents-to-play-multiplayer-games-using-self-play-deep-reinforcement-learning-247d0b440717), and it looks like a viable option to test and a fun coding challenge. However, before embarking in yet another big change I want to ensure I have been thorough with the model and have tested every option correctly.
 
-I feel the end is near... should I continue to update this post as new events unfold or shall I make it a multi post thread?
+I feel the end is near... should I continue to update this post as new events unfold or shall I make it a multi post thread? -->

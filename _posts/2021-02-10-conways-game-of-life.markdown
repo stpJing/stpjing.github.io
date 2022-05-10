@@ -1,8 +1,8 @@
----
+<!-- ---
 layout: post
 read_time: true
 show_date: true
-title:  Conway's Game of Life 
+title:  Conway's Game of Life
 date:   2021-02-10 13:32:20 -0600
 description: Taking on the challenge of picking up coding again through interesting small projects, this time it is the turn of Conway's Game of Life.
 img: posts/20210210/Game_of_Life.jpg
@@ -74,11 +74,11 @@ def next_state(self):
 for cell in alive_neighbors:
     if alive_neighbors[cell] &lt; 2 or alive_neighbors[cell] > 3:
         self.alive_cells.discard(cell)
-    
+
     elif alive_neighbors[cell] == 3:
         self.alive_cells.add(cell)
 ```
 
 <p>Notice that since I am keeping an array of the coordinates of only the cells who are alive, I could apply just 3 rules, die of loneliness, die of overpopulation and become alive from reproduction (exactly 3 alive neighbors) because the ones who have 2 or 3 neighbors and are already alive, can remain alive in the next iteration.</p>
 
-<p>I&nbsp;found it very interesting to implement the Game of Life like this, it was quite a refreshing challenge and I am beginning to feel my coding skills ramping up again.</p>
+<p>I&nbsp;found it very interesting to implement the Game of Life like this, it was quite a refreshing challenge and I am beginning to feel my coding skills ramping up again.</p> -->
