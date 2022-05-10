@@ -1,6 +1,6 @@
 对theme Adam Blog 2.0进行汉化构建的个人blog
 使用lovere替换disqus
-是哟百度统计替换谷歌统计
+使用百度统计替换谷歌统计
 原址https://github.com/the-mvm/the-mvm.github.io
 
 
