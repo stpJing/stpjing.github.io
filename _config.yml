@@ -32,13 +32,13 @@ about-author: 在校大学生.
 
 # Contact links
 email: youngloogjim@gmail.com # Add your Email address
-phone: +86 19982040169# Add your Phone number
+phone: +86 19982040169 # Add your Phone number
 website: https://stpjing.github.io # Add your website
 linkedin: stpJing # Add your Linkedin handle
 github: stpJing # Add your Github handle
-twitter: '@MvmThe' # Add your Twitter handle
-bandcamp: armandomaynez # Add your Bandcamp username
-stackoverflow: stackoverflow # Add your stackoverflow account
+#twitter: '@MvmThe' # Add your Twitter handle
+#bandcamp: armandomaynez # Add your Bandcamp username
+stackoverflow: stpjing # Add your stackoverflow account
 
 # Newsletter
 mailchimp: "https://github.us1.list-manage.com/subscribe/post?u=8ece198b3eb260e6838461a60&amp;id=397d90b5f4"
