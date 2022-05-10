@@ -30,9 +30,9 @@ JPA只是一个简化对象关系映射来管理Java应用程序中的关系数�
 
     spring:
       datasource:
-        url: jdbc:mysql://{{数据库IP+端口（一般为3306）}}/{{数据库名}}?serverTimezone = {{时区}} & useUnicode=true #最后一项为使用utf-8编码
-        username: {{用户名}}
-        password: {{密码}}
+        url: jdbc:mysql://127.0.0.1:3306/database?serverTimezone = GMT%2B8 & useUnicode=true #最后一项为使用utf-8编码
+        username: root
+        password: root
         driver-class-name: com.mysql.cj.jdbc.Driver
       jpa:
         database: MySQL
