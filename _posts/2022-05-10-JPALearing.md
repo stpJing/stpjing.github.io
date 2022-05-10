@@ -90,13 +90,13 @@ lombok提供以下注释
 
     @Data
     @NoArgsConstructor
-    @Entity //实体
-    @Table(name = "user")//JPA会依据name建表读表
+    @Entity
+    @Table(name = "user")
     public class User{
-      @Id//标识主键
-      @GeneratedValue(strategy = GenerationType.IDENTITY)//主键自增策略
+      @Id
+      @GeneratedValue(strategy = GenerationType.IDENTITY)
       private Integer userId;
-      @Column(name = "name", unique = true, nullable = false, length = 64)//name属性对应表中的属性，unique，nullable分别对应属性是否唯一，是否为空（默认为否），length则代表存储长度
+      @Column(name = "name", unique = true, nullable = false, length = 64)
       private String username;
     }
 
@@ -106,7 +106,7 @@ lombok提供以下注释
     @NoArgsConstructor
     @Entity
     @Table(name = "admin")
-    public class User{
+    public class Admin{
       @Id
       @GeneratedValue(strategy = GenerationType.IDENTITY)
       private Integer adminId;
