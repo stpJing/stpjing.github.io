@@ -13,21 +13,21 @@ description: "JPA只是一个简化对象关系映射来管理Java应用程序�
 JPA只是一个简化对象关系映射来管理Java应用程序中的关系数据的规范。 它提供了一个平台，可以直接使用对象而不是使用SQL语句。
 
 对于SpringBoot而言，整合JPA是容易的，只需要在maven中引入以下依赖：
-
+```
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
-
+```
 选取MySQL为例，引入mysql驱动
-
+```
     <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
     </dependency>
-
+```
 同时在application.yml中做如下配置
-
+```
     spring:
       datasource:
         url: jdbc:mysql://127.0.0.1:3306/database?serverTimezone = GMT%2B8 & useUnicode=true #最后一项为使用utf-8编码
@@ -40,7 +40,7 @@ JPA只是一个简化对象关系映射来管理Java应用程序中的关系数�
         show-sql: true #是否自动显示sql语句
         hibernate:
          ddl-auto: update
-
+```
 需要注意的是，ddl-auto有五个属性
 
 | ddl-auto    | 功能                                                         |
@@ -52,7 +52,7 @@ JPA只是一个简化对象关系映射来管理Java应用程序中的关系数�
 | none        | 禁用                                                         |
 
 JPA可以协助使用者依据实体类创建表，这要求使用者提供标注，以下为实例
-
+```
     @Entity //实体
     @Table(name = "user")//JPA会依据name建表读表
     public class User{
@@ -63,15 +63,15 @@ JPA可以协助使用者依据实体类创建表，这要求使用者提供标�
       private String username;
       //省略空参构造，与get/set函数
     }
-
+```
 为避免空参构造与get/set的繁琐，提高代码的简洁性，可以引入lombok
-
+```
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
         <scope>provided</scope>
     </dependency>
-
+```
 lombok提供以下注释
 
 | 注释                     | 作用域及作用                                                 |
@@ -87,7 +87,7 @@ lombok提供以下注释
 | @Slf4j                   | 注解在类，生成log变量，严格意义来说是常量。 |
 
 根据我们的需求，重新构造User
-
+```
     @Data
     @NoArgsConstructor
     @Entity
@@ -99,9 +99,9 @@ lombok提供以下注释
       @Column(name = "name", unique = true, nullable = false, length = 64)
       private String username;
     }
-
+```
 可以为User添加一对多关系Admin，一个Admin管理多个User
-
+```
     @Data
     @NoArgsConstructor
     @Entity
@@ -116,24 +116,24 @@ lombok提供以下注释
       //name代表作为外键的属性
       private Collection<User> users;
     }
-
+```
 同时User中添加以下一行
-
+```
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.REFRESH})
     private Admin adminId;
-
+```
 可以为User添加多对多关系Role，在JPA中，多对多的双方并不是完全对等的，通常分为支配方与被支配方
 选择User作为支配方，添加代码
-
+```
     @ManyToMany(targetEntity = Role.class, cascade = {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.REFRESH})
     @JoinTable(name = "role2tag",//多对多关系在数据库中需要创建新表，这一行是表名
             joinColumns = {@JoinColumn(name = "userId", referencedColumnName = "userId")},//两个属性分别支配方被引用的属性，以及改属性在role2tag表中的名称
             inverseJoinColumns = {@JoinColumn(name = "roleId", referencedColumnName = "roleId")}//两个属性分别被支配方被引用的属性，以及改属性在role2tag表中的名称
     )
     private Collection<Role> roles;
-
+```
 同时创建实体类Role
-
+```
     @Data
     @NoArgsConstructor
     @Entity
@@ -146,7 +146,7 @@ lombok提供以下注释
       //mappedBy对应支配方引用该实体的属性，即roles
       private Collection<User> users;
     }
-
+```
 JPA的级联属性如下所示：
 
 | 级联属性 | 作用     |
