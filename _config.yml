@@ -51,10 +51,13 @@ livere_uid: MTAyMC81NjM3My8zMjgzNg==
 #discus_identifier: amaynez-github-io # Add your discus identifier
 #comments_curtain: yes # leave empty to show the disqus embed directly
 
+
+#百度统计
+baiduID: e48a87a2aa086c04d51b92ee5320c82a
 # Tracker
 #谷歌统计
-analytics: G-R8SZS2YBZK
-fbadmin: ar.maybach
+# analytics: G-R8SZS2YBZK
+# fbadmin: ar.maybach
 
 # Paginate
 paginate: 6
