@@ -1,20 +1,32 @@
 {% if site.discus_identifier %}
   <section class="comment-area">
-    <div id="lv-container" data-id="city" data-uid="MTAyMC81NjM3My8zMjgzNg==">
-    <script type="text/javascript">
-       (function(d, s) {
-           var j, e = d.getElementsByTagName(s)[0];
+    <div class="comment-wrapper">
+        {% if site.comments_curtain %}
+            <div class="row" id="comment-curtain">
+                <div class="col-lg-8 col-sm-10 mr-auto ml-auto">
+                    <h2 class="page-subtitle">撰写评论</h2>
+                    <div class="comments-trigger" onClick="toggle_comments()">
+                        <i class="fa fa-comments"></i>&nbsp;&nbsp;撰写评论 ...
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div id="lv-container" data-id="city" data-uid="MTAyMC81NjM3My8zMjgzNg==">
+        <script type="text/javascript">
+           (function(d, s) {
+               var j, e = d.getElementsByTagName(s)[0];
 
-           if (typeof LivereTower === 'function') { return; }
+               if (typeof LivereTower === 'function') { return; }
 
-           j = d.createElement(s);
-           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-           j.async = true;
+               j = d.createElement(s);
+               j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+               j.async = true;
 
-           e.parentNode.insertBefore(j, e);
-       })(document, 'script');
-    </script>
-    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+               e.parentNode.insertBefore(j, e);
+           })(document, 'script');
+        </script>
+        </div>
+      <noscript>为正常使用评论请启用JavaScript</noscript>
     </div>
   </section> <!-- End Comment Area -->
 {% endif %}
