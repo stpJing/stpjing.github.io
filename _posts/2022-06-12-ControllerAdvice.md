@@ -7,7 +7,7 @@ date: 2022-06-12
 tags: [ControllerAdvice, RestControllerAdvice, swagger]
 category: opinion
 author: 荆凉凉
-github: stpJing/Spring-JPAdemo
+github: stpJing/stpJing.web
 img: posts/20220612/title.jpg
 description: "使用@ControllerAdvice注解处理信息返回是方便的，在适用它之前，仍然有许多内容要知道。"
 
