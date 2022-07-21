@@ -2,7 +2,7 @@
 layout: post
 read_time: true
 show_date: true
-title: "SpringBoot 全局化消息返回与错误处理，兼容swagger"
+title: "SpringBoot 全局化消息返回与错误处理，兼容swagger(一)"
 date: 2022-06-12
 tags: [ControllerAdvice, RestControllerAdvice, swagger]
 category: opinion
